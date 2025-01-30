@@ -47,7 +47,9 @@ in a clean architecture.
 ```
 
 - Tag and push the image:
+
 ``` docker tag run-api-repo:latest <aws_account_id>.dkr.ecr.eu-central-1.amazonaws.com/run-api-repo:latest``` 
+
 
 ```docker push <aws_account_id>.dkr.ecr.eu-central-1.amazonaws.com/run-api-repo:latest``` 
 

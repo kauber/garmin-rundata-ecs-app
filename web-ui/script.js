@@ -13,7 +13,7 @@ document.getElementById("upload-form").addEventListener("submit", async function
 
     try {
         // Send the file to the backend
-        const response = await fetch("http://51.20.108.227:8000/api/upload", {
+        const response = await fetch("", { //provide api endpoint address here
             method: "POST",
             body: formData,
         });
