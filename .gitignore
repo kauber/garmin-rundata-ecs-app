@@ -21,3 +21,13 @@ aws-credentials.json
 .DS_Store
 .idea/
 .vscode/
+
+__pycache__/
+.venv/
+*.pyc
+.DS_Store
+.env/
+.idea/  # Pycharm files
+
+/data/
+/web/
