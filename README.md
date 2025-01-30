@@ -66,7 +66,9 @@ The AWS CDK script defines:
 
 - Deploy the stack:
 
-``` cdk deploy
+``` 
+cdk deploy
+
 ```
 
 ### **How It Works**
