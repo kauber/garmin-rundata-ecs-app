@@ -1,0 +1,377 @@
+{
+  "version": "39.0.0",
+  "artifacts": {
+    "RunAppAwsStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "RunAppAwsStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "RunAppAwsStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "RunAppAwsStack.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/d2579638260bab7fb552ccdab9045fdcd635c1569b29acd86dfdd4c7010c5f96.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "RunAppAwsStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "RunAppAwsStack.assets"
+      ],
+      "metadata": {
+        "/RunAppAwsStack/RunApiVpc/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RunApiVpcFBD379AD"
+          }
+        ],
+        "/RunAppAwsStack/RunApiVpc/PublicSubnetSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RunApiVpcPublicSubnetSubnet1Subnet9491DCB0"
+          }
+        ],
+        "/RunAppAwsStack/RunApiVpc/PublicSubnetSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RunApiVpcPublicSubnetSubnet1RouteTableD0EECA29"
+          }
+        ],
+        "/RunAppAwsStack/RunApiVpc/PublicSubnetSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RunApiVpcPublicSubnetSubnet1RouteTableAssociation46AD0197"
+          }
+        ],
+        "/RunAppAwsStack/RunApiVpc/PublicSubnetSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RunApiVpcPublicSubnetSubnet1DefaultRoute9FAE547E"
+          }
+        ],
+        "/RunAppAwsStack/RunApiVpc/IGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RunApiVpcIGWC4E60443"
+          }
+        ],
+        "/RunAppAwsStack/RunApiVpc/VPCGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RunApiVpcVPCGWEE500E67"
+          }
+        ],
+        "/RunAppAwsStack/RunApiVpc/RestrictDefaultSecurityGroupCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RunApiVpcRestrictDefaultSecurityGroupCustomResourceA46C8164"
+          }
+        ],
+        "/RunAppAwsStack/LatestNodeRuntimeMap": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "LatestNodeRuntimeMap"
+          }
+        ],
+        "/RunAppAwsStack/Custom::VpcRestrictDefaultSGCustomResourceProvider": [
+          {
+            "type": "aws:cdk:is-custom-resource-handler-customResourceProvider",
+            "data": true
+          }
+        ],
+        "/RunAppAwsStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Role": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomVpcRestrictDefaultSGCustomResourceProviderRole26592FE0"
+          }
+        ],
+        "/RunAppAwsStack/Custom::VpcRestrictDefaultSGCustomResourceProvider/Handler": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomVpcRestrictDefaultSGCustomResourceProviderHandlerDC833E5E"
+          }
+        ],
+        "/RunAppAwsStack/RunApiSecurityGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RunApiSecurityGroup6035D974"
+          }
+        ],
+        "/RunAppAwsStack/RunApiCluster/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RunApiCluster57804DBA"
+          }
+        ],
+        "/RunAppAwsStack/RunApiCluster/RunApiCluster": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RunApiClusterE2113998"
+          }
+        ],
+        "/RunAppAwsStack/RunApiEC2Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RunApiEC2Role829F9AEC"
+          }
+        ],
+        "/RunAppAwsStack/RunApiEC2Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RunApiEC2RoleDefaultPolicy2A19FE82"
+          }
+        ],
+        "/RunAppAwsStack/RunApiASG": [
+          {
+            "type": "aws:cdk:warning",
+            "data": "desiredCapacity has been configured. Be aware this will reset the size of your AutoScalingGroup on every deployment. See https://github.com/aws/aws-cdk/issues/5215 [ack: @aws-cdk/aws-autoscaling:desiredCapacitySet]",
+            "trace": [
+              "Annotations.addMessage (C:\\Users\\valen\\AppData\\Local\\Temp\\jsii-kernel-30rL9n\\node_modules\\aws-cdk-lib\\core\\lib\\annotations.js:1:1608)",
+              "Annotations.addWarningV2 (C:\\Users\\valen\\AppData\\Local\\Temp\\jsii-kernel-30rL9n\\node_modules\\aws-cdk-lib\\core\\lib\\annotations.js:1:825)",
+              "new AutoScalingGroup (C:\\Users\\valen\\AppData\\Local\\Temp\\jsii-kernel-30rL9n\\node_modules\\aws-cdk-lib\\aws-autoscaling\\lib\\auto-scaling-group.js:1:16764)",
+              "Kernel._Kernel_create (C:\\Users\\valen\\AppData\\Local\\Temp\\tmp5a76nsvk\\lib\\program.js:9128:25)",
+              "Kernel.create (C:\\Users\\valen\\AppData\\Local\\Temp\\tmp5a76nsvk\\lib\\program.js:8798:93)",
+              "KernelHost.processRequest (C:\\Users\\valen\\AppData\\Local\\Temp\\tmp5a76nsvk\\lib\\program.js:10718:36)",
+              "KernelHost.run (C:\\Users\\valen\\AppData\\Local\\Temp\\tmp5a76nsvk\\lib\\program.js:10678:22)",
+              "Immediate._onImmediate (C:\\Users\\valen\\AppData\\Local\\Temp\\tmp5a76nsvk\\lib\\program.js:10679:46)",
+              "process.processImmediate (node:internal/timers:491:21)"
+            ]
+          }
+        ],
+        "/RunAppAwsStack/RunApiASG/InstanceProfile": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RunApiASGInstanceProfileACDAA9DE"
+          }
+        ],
+        "/RunAppAwsStack/RunApiASG/LaunchTemplate/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RunApiASGLaunchTemplate84409888"
+          }
+        ],
+        "/RunAppAwsStack/RunApiASG/ASG": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RunApiASG7BF846BC"
+          }
+        ],
+        "/RunAppAwsStack/SsmParameterValue:--aws--service--ecs--optimized-ami--amazon-linux-2--recommended--image_id:C96584B6-F00A-464E-AD19-53AFF4B05118.Parameter": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "SsmParameterValueawsserviceecsoptimizedamiamazonlinux2recommendedimageidC96584B6F00A464EAD1953AFF4B05118Parameter"
+          }
+        ],
+        "/RunAppAwsStack/AsgCapacityProvider/AsgCapacityProvider": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AsgCapacityProvider760D11D9"
+          }
+        ],
+        "/RunAppAwsStack/RunApiTaskExecutionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RunApiTaskExecutionRole63274FA4"
+          }
+        ],
+        "/RunAppAwsStack/RunApiTaskExecutionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RunApiTaskExecutionRoleDefaultPolicy5A2343BE"
+          }
+        ],
+        "/RunAppAwsStack/RunApiTaskDef/TaskRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RunApiTaskDefTaskRole671A3430"
+          }
+        ],
+        "/RunAppAwsStack/RunApiTaskDef/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RunApiTaskDef7171DD96"
+          }
+        ],
+        "/RunAppAwsStack/RunApiTaskDef/RunApiContainer": [
+          {
+            "type": "aws:cdk:warning",
+            "data": "Proper policies need to be attached before pulling from ECR repository, or use 'fromEcrRepository'. [ack: @aws-cdk/aws-ecs:ecrImageRequiresPolicy]",
+            "trace": [
+              "Annotations.addMessage (C:\\Users\\valen\\AppData\\Local\\Temp\\jsii-kernel-30rL9n\\node_modules\\aws-cdk-lib\\core\\lib\\annotations.js:1:1608)",
+              "Annotations.addWarningV2 (C:\\Users\\valen\\AppData\\Local\\Temp\\jsii-kernel-30rL9n\\node_modules\\aws-cdk-lib\\core\\lib\\annotations.js:1:825)",
+              "RepositoryImage.bind (C:\\Users\\valen\\AppData\\Local\\Temp\\jsii-kernel-30rL9n\\node_modules\\aws-cdk-lib\\aws-ecs\\lib\\images\\repository.js:1:1306)",
+              "new ContainerDefinition (C:\\Users\\valen\\AppData\\Local\\Temp\\jsii-kernel-30rL9n\\node_modules\\aws-cdk-lib\\aws-ecs\\lib\\container-definition.js:1:3120)",
+              "Ec2TaskDefinition.addContainer (C:\\Users\\valen\\AppData\\Local\\Temp\\jsii-kernel-30rL9n\\node_modules\\aws-cdk-lib\\aws-ecs\\lib\\base\\task-definition.js:1:10269)",
+              "Ec2TaskDefinition.addContainer (C:\\Users\\valen\\AppData\\Local\\Temp\\jsii-kernel-30rL9n\\node_modules\\aws-cdk-lib\\aws-ecs\\lib\\ec2\\ec2-task-definition.js:1:2949)",
+              "C:\\Users\\valen\\AppData\\Local\\Temp\\tmp5a76nsvk\\lib\\program.js:8874:172",
+              "Kernel._Kernel_ensureSync (C:\\Users\\valen\\AppData\\Local\\Temp\\tmp5a76nsvk\\lib\\program.js:9500:24)",
+              "Kernel.invoke (C:\\Users\\valen\\AppData\\Local\\Temp\\tmp5a76nsvk\\lib\\program.js:8874:102)",
+              "KernelHost.processRequest (C:\\Users\\valen\\AppData\\Local\\Temp\\tmp5a76nsvk\\lib\\program.js:10718:36)",
+              "KernelHost.run (C:\\Users\\valen\\AppData\\Local\\Temp\\tmp5a76nsvk\\lib\\program.js:10678:22)",
+              "Immediate._onImmediate (C:\\Users\\valen\\AppData\\Local\\Temp\\tmp5a76nsvk\\lib\\program.js:10679:46)",
+              "process.processImmediate (node:internal/timers:491:21)"
+            ]
+          }
+        ],
+        "/RunAppAwsStack/RunApiTaskDef/RunApiContainer/LogGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RunApiTaskDefRunApiContainerLogGroupE4B98436"
+          }
+        ],
+        "/RunAppAwsStack/RunApiService": [
+          {
+            "type": "aws:cdk:warning",
+            "data": "minHealthyPercent has not been configured so the default value of 50% is used. The number of running tasks will decrease below the desired count during deployments etc. See https://github.com/aws/aws-cdk/issues/31705 [ack: @aws-cdk/aws-ecs:minHealthyPercent]",
+            "trace": [
+              "Annotations.addMessage (C:\\Users\\valen\\AppData\\Local\\Temp\\jsii-kernel-30rL9n\\node_modules\\aws-cdk-lib\\core\\lib\\annotations.js:1:1608)",
+              "Annotations.addWarningV2 (C:\\Users\\valen\\AppData\\Local\\Temp\\jsii-kernel-30rL9n\\node_modules\\aws-cdk-lib\\core\\lib\\annotations.js:1:825)",
+              "new BaseService (C:\\Users\\valen\\AppData\\Local\\Temp\\jsii-kernel-30rL9n\\node_modules\\aws-cdk-lib\\aws-ecs\\lib\\base\\base-service.js:1:8100)",
+              "new Ec2Service (C:\\Users\\valen\\AppData\\Local\\Temp\\jsii-kernel-30rL9n\\node_modules\\aws-cdk-lib\\aws-ecs\\lib\\ec2\\ec2-service.js:1:2451)",
+              "Kernel._Kernel_create (C:\\Users\\valen\\AppData\\Local\\Temp\\tmp5a76nsvk\\lib\\program.js:9128:25)",
+              "Kernel.create (C:\\Users\\valen\\AppData\\Local\\Temp\\tmp5a76nsvk\\lib\\program.js:8798:93)",
+              "KernelHost.processRequest (C:\\Users\\valen\\AppData\\Local\\Temp\\tmp5a76nsvk\\lib\\program.js:10718:36)",
+              "KernelHost.run (C:\\Users\\valen\\AppData\\Local\\Temp\\tmp5a76nsvk\\lib\\program.js:10678:22)",
+              "Immediate._onImmediate (C:\\Users\\valen\\AppData\\Local\\Temp\\tmp5a76nsvk\\lib\\program.js:10679:46)",
+              "process.processImmediate (node:internal/timers:491:21)"
+            ]
+          }
+        ],
+        "/RunAppAwsStack/RunApiService/Service": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RunApiService14B2945B"
+          }
+        ],
+        "/RunAppAwsStack/RunAnalyzeWebUiBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RunAnalyzeWebUiBucketA88BBC30"
+          }
+        ],
+        "/RunAppAwsStack/RunAnalyzeWebUiBucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RunAnalyzeWebUiBucketPolicyF36C0D68"
+          }
+        ],
+        "/RunAppAwsStack/RunAnalyzeWebUiBucket/AutoDeleteObjectsCustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "RunAnalyzeWebUiBucketAutoDeleteObjectsCustomResource5F1AE853"
+          }
+        ],
+        "/RunAppAwsStack/Custom::S3AutoDeleteObjectsCustomResourceProvider": [
+          {
+            "type": "aws:cdk:is-custom-resource-handler-customResourceProvider",
+            "data": true
+          }
+        ],
+        "/RunAppAwsStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+          }
+        ],
+        "/RunAppAwsStack/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F"
+          }
+        ],
+        "/RunAppAwsStack/DeployWebUi/AwsCliLayer/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DeployWebUiAwsCliLayerDFEB53AF"
+          }
+        ],
+        "/RunAppAwsStack/DeployWebUi/CustomResource/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DeployWebUiCustomResource385D257E"
+          }
+        ],
+        "/RunAppAwsStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C": [
+          {
+            "type": "aws:cdk:is-custom-resource-handler-singleton",
+            "data": true
+          },
+          {
+            "type": "aws:cdk:is-custom-resource-handler-runtime-family",
+            "data": 2
+          }
+        ],
+        "/RunAppAwsStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRole89A01265"
+          }
+        ],
+        "/RunAppAwsStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756CServiceRoleDefaultPolicy88902FDF"
+          }
+        ],
+        "/RunAppAwsStack/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C81C01536"
+          }
+        ],
+        "/RunAppAwsStack/WebUiBucketUrl": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WebUiBucketUrl"
+          }
+        ],
+        "/RunAppAwsStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/RunAppAwsStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/RunAppAwsStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/RunAppAwsStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "RunAppAwsStack"
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    }
+  }
+}

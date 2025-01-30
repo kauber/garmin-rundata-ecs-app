@@ -1,10 +1,23 @@
-*.swp
-package-lock.json
-__pycache__
-.pytest_cache
-.venv
-*.egg-info
+# Ignore Python environment files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+.venv/
 
-# CDK asset staging directory
-.cdk.staging
-cdk.out
+# Ignore Docker build files
+*.tar
+*.log
+docker-compose.override.yml
+
+# Ignore AWS credentials & sensitive files
+*.pem
+.env
+aws-credentials.json
+*.key
+
+# Ignore IDE and system files
+.DS_Store
+.idea/
+.vscode/

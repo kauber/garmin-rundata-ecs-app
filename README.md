@@ -1,58 +1,91 @@
+# 🏃 RunAnalyzer - ECS FastAPI Application
 
-# Welcome to your CDK Python project!
+**RunAnalyzer** is a fully containerized **FastAPI** application deployed on **AWS ECS (EC2 launch type)** with an **S3-hosted web UI**. 
+This project showcases the ability to build **scalable cloud applications**, automate infrastructure with **AWS CDK**, and integrate **Docker, ECS, and S3** 
+in a clean architecture.
 
-This is a blank project for CDK development with Python.
+## 🚀 Features
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+- 📊 **FastAPI Backend**: Analyzes running activity data and generates visual statistics.
+- 🐳 **Containerized with Docker**: Packaged as a container and pushed to **AWS ECR**.
+- ☁ **Deployed on ECS (EC2 launch type)**: Running as an **ECS Service** with an **Auto Scaling Group**.
+- 🌐 **Frontend Hosted on S3**: A lightweight web UI to interact with the API.
+- 🔄 **Fully Automated with AWS CDK**: Infrastructure as code for **seamless deployment**.
 
-This project is set up like a standard Python project.  The initialization
-process also creates a virtualenv within this project, stored under the `.venv`
-directory.  To create the virtualenv it assumes that there is a `python3`
-(or `python` for Windows) executable in your path with access to the `venv`
-package. If for any reason the automatic creation of the virtualenv fails,
-you can create the virtualenv manually.
+---
 
-To manually create a virtualenv on MacOS and Linux:
+## 🏗 Architecture Overview
 
+- **FastAPI application**: Receives and processes running data.
+- **Docker container**: Built locally and pushed to **AWS ECR**.
+- **ECS (EC2 launch type)**: A single task runs on an EC2 instance within an **Auto Scaling Group**.
+- **S3 for UI hosting**: The frontend communicates directly with the FastAPI backend.
+- **Security & Networking**: EC2 runs in a **VPC with a security group**, exposing API ports.
+
+---
+
+## 📌 Steps to Deploy
+
+### 1️⃣ **FastAPI Application Development**
+- Built a **FastAPI** app to process running data and generate statistics.
+- Configured **CORS middleware** to allow requests from the S3-hosted UI.
+
+### 2️⃣ **Docker Containerization**
+- Created a `Dockerfile` to package the FastAPI app into a container.
+- Built and tested the image locally:
+  ```sh
+  docker build -t run-api-repo:latest .
+  docker run -p 8000:8000 run-api-repo:latest
+   ```
+  
+  
+  
+### 3 **Push Image to AWS ECR** 
+- Authenticate Docker with ECR:
+
+``` aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin <aws_account_id>.dkr.ecr.eu-central-1.amazonaws.com
 ```
-$ python -m venv .venv
+
+- Tag and push the image:
+``` docker tag run-api-repo:latest <aws_account_id>.dkr.ecr.eu-central-1.amazonaws.com/run-api-repo:latest``` 
+
+```docker push <aws_account_id>.dkr.ecr.eu-central-1.amazonaws.com/run-api-repo:latest``` 
+
+### 4 **Deploy Infrastructure with AWS CDK**
+
+The AWS CDK script defines:
+- **VPC & Security Groups**
+- **ECS Cluster & Auto Scaling Group**
+- **ECS Task & Service**
+- **S3 Bucket for Web UI**
+
+- Deploy the stack:
+
+``` cdk deploy
 ```
 
-After the init process completes and the virtualenv is created, you can use the following
-step to activate your virtualenv.
+### ** How It Works **
+-Frontend (S3) calls the FastAPI backend (ECS on EC2).
+-FastAPI processes the request and returns running statistics.
+-CORS Middleware ensures the web UI can access the API.
+-ECS handles deployment of new container versions via aws ecs update-service.
 
-```
-$ source .venv/bin/activate
-```
 
-If you are a Windows platform, you would activate the virtualenv like this:
+## 📝 Notes
+- **No API Gateway** is used – the UI directly calls the ECS-hosted FastAPI app.
+- **CORS issues** were fixed by allowing the correct S3 frontend origin.
+- **The EC2 instance's public IP is dynamically assigned**, requiring updates in the UI.
 
-```
-% .venv\Scripts\activate.bat
-```
+## 📌 Future Enhancements
+✅ **Use API Gateway + Lambda** instead of EC2 for a fully serverless approach.  
+✅ **Automate frontend updates** by dynamically injecting the API URL into the UI.
 
-Once the virtualenv is activated, you can install the required dependencies.
+## 🏆 Key Takeaways
+This project demonstrates:
+- **Building containerized applications** with Docker & FastAPI.
+- **Deploying and managing AWS ECS workloads** using AWS CDK.
+- **Hosting frontend applications in AWS S3**.
+- **Handling CORS for API security**.
 
-```
-$ pip install -r requirements.txt
-```
+🚀 **AWS CDK + ECS + Docker = Fully Automated Cloud Deployment** 🚀
 
-At this point you can now synthesize the CloudFormation template for this code.
-
-```
-$ cdk synth
-```
-
-To add additional dependencies, for example other CDK libraries, just add
-them to your `setup.py` file and rerun the `pip install -r requirements.txt`
-command.
-
-## Useful commands
-
- * `cdk ls`          list all stacks in the app
- * `cdk synth`       emits the synthesized CloudFormation template
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk docs`        open CDK documentation
-
-Enjoy!

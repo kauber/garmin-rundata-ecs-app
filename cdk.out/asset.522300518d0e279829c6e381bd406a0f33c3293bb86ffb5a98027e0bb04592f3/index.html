@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run Analyzer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Run Analyzer</h1>
+    </header>
+
+    <main>
+        <section id="upload-section">
+            <h2>Upload Your .CSV File</h2>
+            <form id="upload-form">
+                <input type="file" id="csv-file" accept=".csv">
+                <button type="submit" id="upload-btn">Upload</button>
+            </form>
+        </section>
+
+        <section id="table-section">
+            <h2>Data Tables</h2>
+            <div id="matrix-container"></div>
+        </section>
+
+        <section id="charts-section">
+            <h2>Visualizations</h2>
+            <div id="charts-container">
+                <!-- Canvases for charts will be dynamically added here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Run Analyzer</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
