@@ -69,7 +69,7 @@ The AWS CDK script defines:
 ``` cdk deploy
 ```
 
-### ** How It Works **
+### **How It Works**
 -Frontend (S3) calls the FastAPI backend (ECS on EC2).
 -FastAPI processes the request and returns running statistics.
 -CORS Middleware ensures the web UI can access the API.
