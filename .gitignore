@@ -29,5 +29,5 @@ __pycache__/
 .env/
 .idea/  # Pycharm files
 
-/data/
-/web/
+runAnalyzerAPI/data/
+runAnalyzerAPI/web/
