@@ -3,6 +3,8 @@
 **RunAnalyzer** is a fully containerized **FastAPI** application deployed on **AWS ECS (EC2 launch type)** with an **S3-hosted web UI**. 
 This project showcases the ability to build **scalable cloud applications**, automate infrastructure with **AWS CDK**, and integrate **Docker, ECS, and S3** 
 in a clean architecture.
+The application generates statistics and charts when provided with the .csv file containing running activities data, that can be downloaded from 
+the Garmin Connect website.
 
 ## 🚀 Features
 
@@ -25,6 +27,8 @@ in a clean architecture.
 ---
 
 ## 📌 Steps to Deploy
+
+A docker image of the Python FastAPI application can be created using the dockerfile stored in ```/runAnalyzerAPI```
 
 ### 1️⃣ **FastAPI Application Development**
 - Built a **FastAPI** app to process running data and generate statistics.
