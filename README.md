@@ -40,10 +40,12 @@ in a clean architecture.
   
   
   
-### 3 **Push Image to AWS ECR** 
+### 3️⃣  **Push Image to AWS ECR** 
 - Authenticate Docker with ECR:
 
-``` aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin <aws_account_id>.dkr.ecr.eu-central-1.amazonaws.com
+``` 
+aws ecr get-login-password --region eu-central-1 | docker login --username AWS --password-stdin <aws_account_id>.dkr.ecr.eu-central-1.amazonaws.com
+
 ```
 
 - Tag and push the image:
@@ -53,9 +55,10 @@ in a clean architecture.
 
 ```docker push <aws_account_id>.dkr.ecr.eu-central-1.amazonaws.com/run-api-repo:latest``` 
 
-### 4 **Deploy Infrastructure with AWS CDK**
+### 4️⃣  **Deploy Infrastructure with AWS CDK**
 
 The AWS CDK script defines:
+
 - **VPC & Security Groups**
 - **ECS Cluster & Auto Scaling Group**
 - **ECS Task & Service**
