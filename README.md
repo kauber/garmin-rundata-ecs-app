@@ -14,6 +14,8 @@ the Garmin Connect website.
 - 🌐 **Frontend Hosted on S3**: A lightweight web UI to interact with the API.
 - 🔄 **Fully Automated with AWS CDK**: Infrastructure as code for **seamless deployment**.
 
+![Architecture Diagram](./assets/ecs_architecture.drawio.png)
+
 ---
 
 ## 🏗 Architecture Overview
@@ -23,6 +25,8 @@ the Garmin Connect website.
 - **ECS (EC2 launch type)**: A single task runs on an EC2 instance within an **Auto Scaling Group**.
 - **S3 for UI hosting**: The frontend communicates directly with the FastAPI backend.
 - **Security & Networking**: EC2 runs in a **VPC with a security group**, exposing API ports.
+
+
 
 ---
 
